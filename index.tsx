@@ -17,6 +17,7 @@ interface BadgeCache {
 }
 
 const API_URL = "https://globalbadges-bot-production.up.railway.app";
+const LEGACY_DATA_URL = "https://raw.githubusercontent.com/EchoSpring-max/ClientModBadges-API/main";
 
 const cache = new Map<string, BadgeCache>();
 const EXPIRES = 1000 * 60 * 15;
@@ -71,7 +72,7 @@ function GlobalBadges({ userId }: BadgeUserArgs) {
                 const fullNames = { "hunter": "Bug Hunter", "early": "Early User" };
                 badge = {
                     name: fullNames[badge as string] ? fullNames[badge as string] : badge,
-                    badge: `${API_URL}/badges/${mod.toLowerCase()}/${(badge as string).replace(mod, "").trim().split(" ")[0].toLowerCase()}`
+                    badge: `${LEGACY_DATA_URL}/badges/${mod.toLowerCase()}/${(badge as string).replace(mod, "").trim().split(" ")[0].toLowerCase()}.png`
                 };
             } else if (typeof badge === "object") badge.custom = true;
             if (!showCustom() && badge.custom) return;

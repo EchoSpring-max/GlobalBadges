@@ -8,6 +8,7 @@
 
 > [!NOTE]
 > This maintained fork reads badge JSON and images from the live [EchoSpring-max/GlobalBadges-Bot](https://github.com/EchoSpring-max/GlobalBadges-Bot) service. Badges added with the bot's `/badge` command appear through the same API used by this plugin.
+> The live API also merges the preserved legacy dataset, so existing GlobalBadges remain visible.
 
 ## Installing
 If you don't know how to install custom Plugins, follow [this Guide](https://docs.vencord.dev/installing/custom-plugins/)
