@@ -6,7 +6,7 @@
 > [!IMPORTANT]  
 > To add custom plugins, you need to build Vencord from source. Follow [this Guide](https://docs.vencord.dev/installing/) if you haven't done this yet
 
-> [!NOTE]  
+> [!NOTE]
 > This maintained fork reads badge JSON and images from [EchoSpring-max/ClientModBadges-API](https://github.com/EchoSpring-max/ClientModBadges-API). It does not depend on the retired `api.obamabot.me` service or another continuously running server.
 
 ## Installing
