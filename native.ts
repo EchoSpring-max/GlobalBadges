@@ -1,4 +1,4 @@
 import { CspPolicies } from "@main/csp";
 
-CspPolicies["raw.githubusercontent.com"] = [...(CspPolicies["raw.githubusercontent.com"] ?? []), "connect-src", "img-src"];
+CspPolicies["globalbadges-bot-production.up.railway.app"] = [...(CspPolicies["globalbadges-bot-production.up.railway.app"] ?? []), "connect-src", "img-src"];
 CspPolicies["gb.obamabot.me"] = [...(CspPolicies["gb.obamabot.me"] ?? []), "img-src"];

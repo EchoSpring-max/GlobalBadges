@@ -16,7 +16,7 @@ interface BadgeCache {
     expires: number;
 }
 
-const DATA_URL = "https://raw.githubusercontent.com/EchoSpring-max/ClientModBadges-API/main";
+const API_URL = "https://globalbadges-bot-production.up.railway.app";
 
 const cache = new Map<string, BadgeCache>();
 const EXPIRES = 1000 * 60 * 15;
@@ -24,7 +24,7 @@ const EXPIRES = 1000 * 60 * 15;
 async function fetchBadges(id: string): Promise<BadgeCache["badges"] | undefined> {
     const cachedValue = cache.get(id);
     if (!cache.has(id) || (cachedValue && cachedValue.expires < Date.now())) {
-        const resp = await fetch(`${DATA_URL}/users/${id}.json`);
+        const resp = await fetch(`${API_URL}/users/${id}`);
         if (resp.status === 404) return {};
         if (!resp.ok) throw new Error(`Badge data request failed with ${resp.status}`);
         const body = await resp.json() as BadgeCache["badges"];
@@ -71,7 +71,7 @@ function GlobalBadges({ userId }: BadgeUserArgs) {
                 const fullNames = { "hunter": "Bug Hunter", "early": "Early User" };
                 badge = {
                     name: fullNames[badge as string] ? fullNames[badge as string] : badge,
-                    badge: `${DATA_URL}/badges/${mod.toLowerCase()}/${(badge as string).replace(mod, "").trim().split(" ")[0].toLowerCase()}.png`
+                    badge: `${API_URL}/badges/${mod.toLowerCase()}/${(badge as string).replace(mod, "").trim().split(" ")[0].toLowerCase()}`
                 };
             } else if (typeof badge === "object") badge.custom = true;
             if (!showCustom() && badge.custom) return;
